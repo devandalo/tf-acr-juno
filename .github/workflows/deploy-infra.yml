@@ -1,0 +1,15 @@
+name: Deploy Infra
+run-name: Deploy ${{ github.event.repository.name }} Infra
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  deploy-infra:
+    uses: devandalo/tf-workflows-juno/.github/workflows/deploy-infra-tmpl.yml@main
+    secrets: inherit
+    with:
+      environment: "lab"

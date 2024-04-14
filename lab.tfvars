@@ -1,0 +1,6 @@
+location       = "norwayeast"
+location_short = "noe"
+stack          = "acr"
+project        = "juno"
+environment    = "lab"
+acr_sku        = "Basic"

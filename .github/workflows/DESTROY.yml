@@ -1,0 +1,19 @@
+name: DESTROY Infra
+run-name: DESTROY ${{ github.event.repository.name }} Infra
+
+on:
+  workflow_dispatch:
+    inputs:
+      destroy:
+        description: "Destroy tf-composition?"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  deploy-infra:
+    uses: devandalo/tf-workflows-juno/.github/workflows/deploy-infra-tmpl.yml@main
+    secrets: inherit
+    with:
+      environment: "lab"
+      destroy: ${{ inputs.destroy }}
